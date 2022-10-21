@@ -19,15 +19,15 @@ all: libft.a
 %.o: %.c
 	gcc -Wall -Wextra -Werror -c -o $@ $^
 NAME : $(OBJS) 
-	ar rc NAME $(OBJS)
+	ar rc $(NAME) $(OBJS)
 clean :
 	rm -rf $(OBJS)
 fclean : clean
-	rm -rf NAME
+	rm -rf $(NAME)
 bonus : $(OBJS_BONUS) 
-	ar rc NAME $(OBJS_BONUS)
+	ar rc $(NAME) $(OBJS_BONUS)
 clean_BONUS :
 	rm -rf $(OBJS_BONUS)
 fclean_BONUS : clean_BONUS
-	rm -rf NAME
+	rm -rf $(NAME)
 re : fclean all
