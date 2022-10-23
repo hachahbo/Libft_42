@@ -31,12 +31,21 @@ static size_t	wc(char *s, char c)
 	return (counter);
 }
 
-static char **check_isfree(char **str)
+static char	**check_isfree(char **str)
 {
 	while (*str)
 		free (*str++);
 	free (str);
 	return (NULL);
+}
+
+static void	ft_skip(char const *s, size_t *start, size_t *end, char c)
+{
+	while (s[*start] == c && s[*start] != '\0')
+		*start = *start + 1;
+	*end = *start;
+	while (s[*end] != c && s[*end] != '\0')
+			*end = *end + 1;
 }
 
 char	**ft_split(char const *s, char c)
@@ -55,11 +64,7 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	while (i < wc((char *)s, c))
 	{
-		while (s[start] == c && s[start] != '\0')
-			start++;
-		end = start;
-		while (s[end] != c && s[end] != '\0')
-			end++;
+		ft_skip(s, &start, &end, c);
 		str_split[i++] = ft_substr((char *)s, start, end - start);
 		if (!*str_split)
 			return (check_isfree(str_split));
