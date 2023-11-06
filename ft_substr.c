@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 00:05:40 by hachahbo          #+#    #+#             */
-/*   Updated: 2022/10/17 18:41:17 by hachahbo         ###   ########.fr       */
+/*   Updated: 2022/10/25 15:56:48 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	if (s == 0)
 		return (0);
+	if (ft_strlen(s) < start)
+		return (ft_strdup(""));
+	if (len > ft_strlen(s + start))
+		len = ft_strlen(s) - start;
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (0);

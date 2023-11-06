@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 00:32:54 by hachahbo          #+#    #+#             */
-/*   Updated: 2022/10/13 23:02:58 by hachahbo         ###   ########.fr       */
+/*   Updated: 2022/10/25 15:47:50 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ char	*ft_strrchr(const char *str, int c)
 	int	j;
 
 	i = 0;
+	c = (unsigned char)c;
 	while (str[i] != '\0')
 	i++;
 	if (c == '\0')

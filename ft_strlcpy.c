@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 01:17:42 by hachahbo          #+#    #+#             */
-/*   Updated: 2022/10/18 08:48:53 by hachahbo         ###   ########.fr       */
+/*   Updated: 2022/10/23 21:42:00 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 	{
 		while (src[i] != 0 && i < size - 1)
 		{
-			((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+			dest[i] = src[i];
 			i++;
 		}
 		dest[i] = '\0';

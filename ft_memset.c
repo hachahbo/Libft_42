@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:27:14 by hachahbo          #+#    #+#             */
-/*   Updated: 2022/10/20 09:18:01 by hachahbo         ###   ########.fr       */
+/*   Updated: 2022/10/25 14:31:16 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t	i;
-	char	*s;
+	size_t			i;
+	unsigned char	*s;
 
-	s = (char *)b;
+	s = (unsigned char *)b;
 	i = 0;
 	while (i < len)
 	{
-		((unsigned char *)s)[i] = c;
+		s[i] = (unsigned char)c;
 		i++;
 	}
 	return (s);

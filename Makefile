@@ -10,24 +10,30 @@ ft_atoi.c ft_strlen.c ft_substr.c ft_putchar_fd.c ft_putendl_fd.c \
 ft_putnbr_fd.c ft_striteri.c 
 SRCS_BONUS = ft_lstnew.c ft_lstadd_front.c\
 ft_lstsize.c ft_lstadd_back.c ft_lstlast.c
-libft.h = $(NAME)
+NAME = libft.a
 OBJS = $(SRCS:.c=.o)
 OBJS_BONUS = $(SRCS_BONUS:.c=.o) 
 
-all: libft.a
+all: $(NAME)
 
-%.o: %.c
-	gcc -Wall -Wextra -Werror -c -o $@ $^
-NAME : $(OBJS) 
+$(NAME) : $(OBJS)
 	ar rc $(NAME) $(OBJS)
-clean :
+
+%.o: %.c libft.h
+	cc -Wall -Wextra -Werror -c $<
+
+clean : clean_BONUS
 	rm -rf $(OBJS)
+
+bonus : $(OBJS_BONUS) 
+	@ar rc $(NAME) $(OBJS_BONUS)
+
+clean_BONUS : 
+	rm -rf $(OBJS_BONUS)
+
 fclean : clean
 	rm -rf $(NAME)
-bonus : $(OBJS_BONUS) 
-	ar rc $(NAME) $(OBJS_BONUS)
-clean_BONUS :
-	rm -rf $(OBJS_BONUS)
-fclean_BONUS : clean_BONUS
-	rm -rf $(NAME)
-re : fclean all
+
+re : fclean fclean_BONUS all bonus
+
+.PHONY :  clean fclean bonus clean_BONUS fclean_BONUS re all

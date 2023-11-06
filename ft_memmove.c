@@ -6,7 +6,7 @@
 /*   By: hachahbo <hachahbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 03:02:37 by hachahbo          #+#    #+#             */
-/*   Updated: 2022/10/21 16:42:36 by hachahbo         ###   ########.fr       */
+/*   Updated: 2022/10/23 19:06:54 by hachahbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 		return (0);
 	i = 0;
 	if ((char *)src < (char *)dst)
+	{
 		while (0 < len)
 		{
 			((char *)dst)[len - 1] = ((char *)src)[len - 1];
 			len--;
 		}
+	}
 	else
 	{
 		i = 0;
